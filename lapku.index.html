@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penyedia WiFi Terbaik & Terluas</title>
+    <style>
+        :root {
+            --primary: #d32f2f;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --success: #25d366;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1200') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Keunggulan Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* Provider Section */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .provider-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .provider-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            min-height: 120px;
+        }
+
+        .provider-card:hover, .provider-card.active {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .provider-logo {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        /* Form Section */
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: none;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        .btn-submit {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #1ebd58;
+        }
+
+        /* Footer / Floating Button */
+        .coverage-check {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn-sales {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-weight: bold;
+            border-radius: 25px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn-sales:hover {
+            background-color: #b71c1c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--dark);
+            color: white;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Melayani Pemasangan WiFi Terbaik</h1>
+            <p>Jaringan super luas, cepat, dan mempermudah semua aktivitasmu tanpa takut ngelag!</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature-card">
+                <h3>CS 24 Jam</h3>
+                <p>Pelayanan customer service siap membantu Anda kapan saja selama 24 jam penuh.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Mudah & Flat</h3>
+                <p>Pembayaran sangat mudah dengan harga flat (tetap) setiap bulannya tanpa kejutan.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Tanpa Batasan</h3>
+                <p>Nikmati internet sepuasnya tanpa ada batasan kuota (True Unlimited) & Free Instalasi.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Pilih Provider WiFi Anda</h2>
+        <p style="text-align: center; margin-bottom: 20px; color: #666;">Klik salah satu logo provider di bawah untuk langsung mengisi formulir pendaftaran</p>
+        
+        <div class="provider-grid">
+            <div class="provider-card" onclick="pilihProvider('IndiHome')">
+                <div class="provider-logo">🔴 IndiHome</div>
+            </div>
+            <div class="provider-card" onclick="pilihProvider('Indosat HiFi')">
+                <div class="provider-logo">🟡 Indosat HiFi</div>
+            </div>
+            <div class="provider-card" onclick="pilihProvider('IDPlay')">
+                <div class="provider-logo">🔵 IDPlay</div>
+            </div>
+            <div class="provider-card" onclick="pilihProvider('CBN')">
+                <div class="provider-logo">🌐 CBN</div>
+            </div>
+            <div class="provider-card" onclick="pilihProvider('MyRepublic')">
+                <div class="provider-logo">💜 MyRepublic</div>
+            </div>
+        </div>
+
+        <div class="form-container" id="formPendaftaran">
+            <h3 id="formTitle" style="margin-bottom: 20px; color: var(--primary);">Formulir Pendaftaran</h3>
+            <form id="wifiForm" onsubmit="kirimKeWhatsapp(event)">
+                <input type="hidden" id="selectedProvider" value="">
+                
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap Sesuai KTP</label>
+                    <input type="text" id="nama" required placeholder="Masukkan nama lengkap Anda">
+                </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat Lengkap Pemasangan</label>
+                    <input type="text" id="alamat" required placeholder="Nama jalan, nomor rumah, cluster, dll">
+                </div>
+                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div>
+                        <label for="rt">RT</label>
+                        <input type="text" id="rt" required placeholder="001">
+                    </div>
+                    <div>
+                        <label for="rw">RW</label>
+                        <input type="text" id="rw" required placeholder="002">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="kelurahan">Kelurahan / Kecamatan</label>
+                    <input type="text" id="kelurahan" required placeholder="Masukkan kelurahan & kecamatan">
+                </div>
+                <div class="form-group">
+                    <label for="kota">Kota / Kabupaten</label>
+                    <input type="text" id="kota" required placeholder="Masukkan kota tempat tinggal">
+                </div>
+                <div class="form-group">
+                    <label for="sharelink">Link Share Lokasi (Google Maps)</label>
+                    <input type="url" id="sharelink" required placeholder="https://maps.app.goo.gl/...">
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Kirim Data Pendaftaran via WhatsApp
+                </button>
+            </form>
+        </div>
+
+        <div class="coverage-check">
+            <h3>Ingin Mengecek Jaringan yang Tercover?</h3>
+            <p>Silahkan hubungi tim sales kami untuk memeriksa provider apa saja yang tersedia tepat di lokasi rumah Anda.</p>
+            <a href="https://wa.me/628xxxxxxxxxx?text=Halo%20Sales,%20saya%20mau%20cek%20jaringan%20WiFi%20yang%20tercover%20di%20wilayah%20saya." target="_blank" class="btn-sales">Hubungi Sales (Cek Jaringan)</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Agen Resmi Pemasangan WiFi Terintegrasi. Proses Cepat & Terpercaya.</p>
+    </footer>
+
+    <script>
+        // GANTI NOMOR WHATSAPP SALES DI SINI
+        const nomorSales = "628xxxxxxxxxx"; // Gunakan format 62 di depan, jangan pakai 0
+
+        function pilihProvider(namaProvider) {
+            // Update value hidden provider
+            document.getElementById('selectedProvider').value = namaProvider;
+            
+            // Ubah judul form secara dinamis
+            document.getElementById('formTitle').innerText = "Formulir Pendaftaran Provider " + namaProvider;
+            
+            // Munculkan container form dengan smooth style
+            const formContainer = document.getElementById('formPendaftaran');
+            formContainer.style.display = 'block';
+            
+            // Beri efek class active ke card yang dipilih
+            const cards = document.querySelectorAll('.provider-card');
+            cards.forEach(card => card.classList.remove('active'));
+            
+            // Cari card yang diklik untuk menambahkan kelas aktif
+            event.currentTarget.classList.add('active');
+            
+            // Scroll otomatis ke area form agar pengguna langsung tahu
+            formContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function kirimKeWhatsapp(e) {
+            e.preventDefault();
+            
+            const provider = document.getElementById('selectedProvider').value;
+            const nama = document.getElementById('nama').value;
+            const alamat = document.getElementById('alamat').value;
+            const rt = document.getElementById('rt').value;
+            const rw = document.getElementById('rw').value;
+            const kelurahan = document.getElementById('kelurahan').value;
+            const kota = document.getElementById('kota').value;
+            const sharelink = document.getElementById('sharelink').value;
+
+            // Merakit teks pesan WhatsApp agar rapi saat diterima sales
+            const teksPesan = `*PENDAFTARAN BARU ${provider.toUpperCase()}*%0A%0A` +
+                              `• *Nama Lengkap:* ${nama}%0A` +
+                              `• *Alamat Pasang:* ${alamat}%0A` +
+                              `• *RT/RW:* ${rt}/${rw}%0A` +
+                              `• *Kelurahan:* ${kelurahan}%0A` +
+                              `• *Kota:* ${kota}%0A` +
+                              `• *Link Sharelok:* ${sharelink}`;
+
+            // URL WhatsApp Api redirection
+            const urlWhatsapp = `https://wa.me/${nomorSales}?text=${teksPesan}`;
+            
+            // Buka link otomatis meluncur ke aplikasi WhatsApp
+            window.open(urlWhatsapp, '_blank');
+        }
+    </script>
+</body>
+</html>
